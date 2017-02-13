@@ -1,0 +1,30 @@
+html{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+}
+
+.title{
+  margin-top: 1em;
+}
+
+#room-list{
+  font-size: 1.5em;
+}
+
+#room-list > li > a{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+#room-form{
+  font-size: 1.4em;
+  margin-top: 1em;
+}
+
+#chatform{
+  margin-top: 1em;
+}
+
+#message{
+  width: 90%;
+}

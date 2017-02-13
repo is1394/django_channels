@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+Django Channels Example | Room {{ room.label }}
+{% endblock title %}
+
+
+{% block content %}
+<div class="jumbotron title">
+  <h1>{{room.label}} | Room</h1>
+  <p>
+    Anyone with this URL can join the room and chat:
+    <code>{{request.scheme}}://{{request.get_host}}/{{room.label}}</code>
+  </p>
+</div>
+
+<!-- <div class="form-group col-md-4" >
+  <label for="handle">Your name:</label>
+  <input type="text" id="handle" placeholder="handle" class="form-control">
+</div> -->
+<form id="chatform">
+  <table id='chat' class="table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>User</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for message in messages %}
+      <tr>
+        <td>{{ message.formatted_timestamp }}</td>
+        <td>{{ message.handle }}</td>
+        <td>{{ message.message }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td><label for="message">Say Something</label></td>
+        <td colspan="2">
+          <div class="form-inline">
+            <textarea type="text" id="message" placeholder="Message" class="form-control" rows="2"></textarea>
+            <button type="submit" id="go" class="btn btn-info"><span class="glyphicon glyphicon-send" aria-hidden='true'></span></button>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</form>
+{% endblock content %}
+{% block footer %}
+{% load staticfiles %}
+  <!-- <script src='{% static "js/reconnecting-websocket.min.js" %}'></script> -->
+  <script>
+    var room = "{{room.label}}";
+  </script>
+  <script src='{% static "js/chat.js" %}'></script>
+{% endblock footer %}
