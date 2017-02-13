@@ -17,4 +17,4 @@ Migrate the database `python manage.py migrate`
 
 Run the project `python manage.py runserver`
 
-    Based on [Heroku Channels Example](https://github.com/jacobian/channels-example)
+>Based on [Heroku Channels Example](https://github.com/jacobian/channels-example)
